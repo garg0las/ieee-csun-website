@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar | IEEE CSUN</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- FullCalendar (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.19/index.global.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.19/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.19/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.19/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.19/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.19/index.global.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">IEEE CSUN</a>
+      <nav class="nav">
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="calendar.html" aria-current="page">Calendar</a>
+        <a href="join.html" class="btn">Join</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 style="font-family: Orbitron, system-ui;">Interactive Calendar</h1>
+      <p class="muted">Filter by category: Events / Projects / Workshops</p>
+
+      <div class="card" style="margin-bottom:14px;">
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <label><input type="checkbox" class="cal-filter" value="event" checked> Events</label>
+          <label><input type="checkbox" class="cal-filter" value="project" checked> Projects</label>
+          <label><input type="checkbox" class="cal-filter" value="workshop" checked> Workshops</label>
+          <span class="muted" style="margin-left:auto;">Tip: click an item for details</span>
+        </div>
+      </div>
+
+      <div class="calendar-wrap">
+        <div id="calendar"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> IEEE CSUN.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // 1) Put your Google API Key + Calendar ID here:
+    const GOOGLE_API_KEY = "PASTE_YOUR_API_KEY";
+    const GOOGLE_CALENDAR_ID = "your_calendar_id@group.calendar.google.com";
+
+    // 2) Category rules: use event title prefixes like:
+    // [EVENT] ... , [PROJECT] ... , [WORKSHOP] ...
+    function detectCategory(title = "") {
+      const t = title.toLowerCase();
+      if (t.includes("[project]")) return "project";
+      if (t.includes("[workshop]")) return "workshop";
+      return "event";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const calendarEl = document.getElementById("calendar");
+
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: [FullCalendarGoogleCalendar, FullCalendarDayGrid, FullCalendarTimeGrid, FullCalendarList],
+        initialView: "dayGridMonth",
+        height: "auto",
+        googleCalendarApiKey: GOOGLE_API_KEY,
+        headerToolbar: {
+          left: "prev,next today",
+          center: "title",
+          right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
+        },
+        events: {
+          googleCalendarId: GOOGLE_CALENDAR_ID
+        },
+        eventDidMount: function(info) {
+          const cat = detectCategory(info.event.title);
+          info.el.dataset.category = cat;
+        },
+        eventClick: function(info) {
+          // default: open Google event in a new tab
+          info.jsEvent.preventDefault();
+          if (info.event.url) window.open(info.event.url, "_blank");
+        }
+      });
+
+      calendar.render();
+
+      // Filtering by category
+      const filters = document.querySelectorAll(".cal-filter");
+      function applyFilters() {
+        const enabled = new Set(
+          Array.from(filters).filter(cb => cb.checked).map(cb => cb.value)
+        );
+        document.querySelectorAll("[data-category]").forEach(el => {
+          el.style.display = enabled.has(el.dataset.category) ? "" : "none";
+        });
+      }
+      filters.forEach(cb => cb.addEventListener("change", applyFilters));
+
+      // Apply after events load (small delay helps as DOM is created)
+      calendar.on("eventsSet", () => setTimeout(applyFilters, 50));
+    });
+  </script>
+</body>
+</html>
