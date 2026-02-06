@@ -96,13 +96,13 @@ img{ max-width:100%; display:block; }
   border-radius: 12px;
 }
 .nav-links a:hover{
-  color: rgba(255,255,255,.92);
+  color: var(--csun-red);
   background: rgba(255,255,255,.06);
   outline: 1px solid rgba(255,255,255,.08);
 }
 .nav-cta{
   text-decoration:none;
-  color: #fff;
+  color: var(--csun-red);
   background: var(--csun-red);
   padding: 10px 14px;
   border-radius: 999px;
@@ -1474,7 +1474,7 @@ body.theme-light .nav-theme{
 }
 .nav-links a{
   text-decoration:none;
-  color: rgba(255,255,255,.82);
+  color: var(--csun-red));
   font-weight: 800;
   padding: 9px 12px;
   border-radius: 999px;
@@ -1486,7 +1486,7 @@ body.theme-light .nav-theme{
   position: sticky;
   top:0;
   z-index:50;
-  background: rgba(0,98,155,.72);
+  background: rgb(255, 255, 255);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line2);
 }
@@ -1503,7 +1503,7 @@ body.theme-light .nav-theme{
 }
 
 .nav-links a:hover{
-  color: #fff;
+  color: var(--csun-red);
   background: rgba(255,255,255,.14);
   border-color: rgba(255,255,255,.18);
   transform: translateY(-1px);
@@ -1513,7 +1513,7 @@ body.theme-light .nav-theme{
 .nav-links a[aria-current="page"]{
   background: rgba(255,255,255,.18);
   border-color: rgba(255,255,255,.26);
-  color: #fff;
+  color: var(--csun-red);
 }
 
 .media-frame video{
@@ -1525,4 +1525,103 @@ body.theme-light .nav-theme{
 
 .logo-only img{
   height: 36px;
+}
+/* =========================================================
+   NAV (final override) — Red text + glass buttons + solid active
+   Put this at the VERY BOTTOM of styles.css
+   ========================================================= */
+
+/* Glass nav bar */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(255,255,255,.70);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.35);
+}
+
+/* Optional subtle glow line */
+.nav::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(186,12,47,.35), transparent);
+  pointer-events:none;
+  opacity: .8;
+}
+
+/* Logo text on light nav */
+.logo{
+  color: rgba(10,18,34,.92);
+}
+.logo-text{
+  color: rgba(10,18,34,.92);
+}
+
+/* Link pills: glass + red text */
+.nav-links a{
+  text-decoration: none;
+  color: var(--csun-red);
+  font-weight: 900;
+
+  padding: 9px 12px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.28);
+  border: 1px solid rgba(186,12,47,.18);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.08),
+    inset 0 1px 0 rgba(255,255,255,.55);
+
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.nav-links a:hover{
+  transform: translateY(-1px);
+  background: rgba(186,12,47,.10);
+  border-color: rgba(186,12,47,.34);
+}
+
+/* ACTIVE PAGE: solid red pill */
+.nav-links a[aria-current="page"]{
+  background: var(--csun-red);
+  border-color: rgba(186,12,47,.55);
+  color: #fff;
+
+  box-shadow:
+    0 14px 34px rgba(186,12,47,.22),
+    inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+/* CTA: solid red button */
+.nav-cta{
+  color: #fff;
+  background: var(--csun-red);
+  border: 1px solid rgba(186,12,47,.55);
+  box-shadow: 0 14px 34px rgba(186,12,47,.22);
+}
+.nav-cta:hover{
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+/* Theme button matches */
+.nav-theme{
+  background: rgba(255,255,255,.28);
+  border: 1px solid rgba(186,12,47,.18);
+  color: var(--csun-red);
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.08),
+    inset 0 1px 0 rgba(255,255,255,.55);
+}
+.nav-theme:hover{
+  background: rgba(186,12,47,.10);
+  border-color: rgba(186,12,47,.34);
+  transform: translateY(-1px);
 }
