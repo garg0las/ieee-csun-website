@@ -6,14 +6,17 @@
   <title>IEEE CSUN</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+
 <body>
-  <!-- Top Nav -->
+  <!-- Navigation -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="index.html" aria-label="IEEE CSUN Home">
-        <span class="logo-mark" aria-hidden="true"></span>
-        <span class="logo-text">IEEE CSUN</span>
-      </a>
+      <a class="logo logo-only" href="index.html">
+  <img src="assets/img/brand/ieee-csun-logo.png" alt="IEEE CSUN">
+</a>
+
+
+
 
       <nav class="nav-links">
         <a href="about.html">About</a>
@@ -26,62 +29,47 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <main class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <!-- background shapes -->
-      <svg class="hero-shapes" viewBox="0 0 1200 700" preserveAspectRatio="none">
-        <path class="shape shape-a" d="M-40,120 C220,30 330,40 520,170 C690,285 875,280 1080,190 C1210,135 1300,125 1280,90 L1280,-20 L-40,-20 Z"/>
-        <path class="shape shape-b" d="M-40,650 C120,530 340,470 560,520 C760,565 860,635 1010,620 C1120,610 1210,540 1280,470 L1280,720 L-40,720 Z"/>
-        <path class="shape-outline" d="M160,110 C350,40 520,100 650,210 C770,315 900,330 1080,250" />
-        <path class="shape-outline" d="M90,610 C250,500 410,470 600,520 C760,560 905,645 1110,610" />
-      </svg>
+  <!-- Hero (Template-style centered) -->
+  <main class="home">
+    <section class="home-hero">
+      <div class="home-hero-bg" aria-hidden="true"></div>
 
-      <!-- subtle grid overlay -->
-      <div class="grid-overlay"></div>
-      <div class="vignette"></div>
-    </div>
+      <div class="container home-hero-inner">
+        <div class="home-pill">IEEE CSUN • Student Branch</div>
 
-    <div class="container hero-inner">
-      <div class="pill">IEEE CSUN • Workshops • Projects • Networking</div>
+        <h1 class="home-title">
+          Institute of Electrical<br />
+          and Electronics Engineers
+        </h1>
 
-      <h1 class="hero-title">
-        Institute of Electrical and Electronics Engineers
-      </h1>
+        <p class="home-subtitle">
+          Build technical skills, launch projects, and grow your network through workshops,
+          project nights, and industry-connected events at CSUN.
+        </p>
 
-      <p class="hero-subtitle">
-        Student branch at California State University, Northridge — building skills through events,
-        projects, and community.
-      </p>
+        <div class="home-cta">
+          <a class="home-btn" href="join.html">
+            <span>Get started</span>
+            <span class="home-btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
 
-      <div class="hero-actions">
-        <a class="btn primary" href="join.html">
-          Get started
-          <span class="arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="btn secondary" href="calendar.html">View calendar</a>
-      </div>
-
-      <div class="trust">
-        <p class="trust-label">What we run</p>
-        <div class="trust-row">
-          <span class="trust-item">General Meetings</span>
-          <span class="dot">•</span>
-          <span class="trust-item">Workshops</span>
-          <span class="dot">•</span>
-          <span class="trust-item">Project Nights</span>
-          <span class="dot">•</span>
-          <span class="trust-item">Industry Talks</span>
-          <span class="dot">•</span>
-          <span class="trust-item">Fundraisers</span>
+        <div class="home-trusted">
+          <div class="home-trusted-title">Trusted by students building real projects</div>
+          <div class="home-logos" aria-label="Partners and community">
+            <span class="home-logo">Workshops</span>
+            <span class="home-logo">Projects</span>
+            <span class="home-logo">Mentorship</span>
+            <span class="home-logo">Career</span>
+            <span class="home-logo">Community</span>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <script>
-    // Optional: smooth scroll if you later add anchors
-    document.documentElement.style.scrollBehavior = "smooth";
-  </script>
+  <!-- Go to top button -->
+  <button class="to-top" aria-label="Go to top">↑</button>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -7,14 +7,17 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
-<body>
-  <!-- Top Nav (same as homepage) -->
+<body class="theme">
+  <!-- Navigation -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="index.html" aria-label="IEEE CSUN Home">
-        <span class="logo-mark" aria-hidden="true"></span>
-        <span class="logo-text">IEEE CSUN</span>
-      </a>
+      <a class="logo logo-only" href="index.html">
+  <img src="assets/img/brand/ieee-csun-logo.png" alt="IEEE CSUN">
+</a>
+
+
+
+
 
       <nav class="nav-links">
         <a href="about.html" aria-current="page">About</a>
@@ -27,112 +30,188 @@
     </div>
   </header>
 
-  <!-- Title Bar (Brightcove style) -->
+  <!-- Title Bar -->
   <section class="about-titlebar">
     <div class="container about-titlebar-inner">
-      <div class="accent-line" aria-hidden="true"></div>
+      <div class="accent-line"></div>
       <h1 class="about-title">ABOUT IEEE CSUN</h1>
     </div>
   </section>
 
-  <!-- Content -->
   <main class="about-main">
-    <div class="container about-grid">
+    <!-- Intro -->
+    <section>
+      <div class="container about-grid">
+        <div class="about-copy card-light">
+          <h2 class="about-h2">Build skills. Build community.</h2>
 
-      <!-- Left column: text -->
-      <section class="about-copy card-light">
-        <h2 class="about-h2">Build with community. Grow with industry.</h2>
+          <p class="about-p">
+            IEEE CSUN is the student branch of the Institute of Electrical and Electronics Engineers
+            at California State University, Northridge.
+          </p>
 
-        <p class="about-p">
-          IEEE CSUN is a student organization that helps members develop real technical skills
-          through hands-on workshops, project nights, and professional development.
-        </p>
+          <p class="about-p">
+            We focus on hands-on workshops, project-based learning, and professional development to
+            help students grow technically and professionally.
+          </p>
 
-        <p class="about-p">
-          Whether you’re exploring electronics, software, cybersecurity, embedded systems, or
-          career prep — we create a place to learn fast, meet people, and ship projects you can
-          proudly put on your resume.
-        </p>
+          <ul class="about-bullets">
+            <li><strong>Workshops:</strong> technical & career-focused</li>
+            <li><strong>Projects:</strong> team-based portfolio builds</li>
+            <li><strong>Networking:</strong> alumni & industry speakers</li>
+            <li><strong>Leadership:</strong> committees & officer roles</li>
+          </ul>
+        </div>
 
-        <ul class="about-bullets">
-          <li><strong>Workshops:</strong> practical skills (tools, resume, interviews, tech topics)</li>
-          <li><strong>Projects:</strong> team builds that turn into portfolio pieces</li>
-          <li><strong>Networking:</strong> alumni + industry speakers + collaborations</li>
-          <li><strong>Leadership:</strong> committees and board opportunities</li>
-        </ul>
+        <aside class="about-media card-light">
+  <div class="media-frame">
+    <video
+      src="assets/video/about.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
 
-        <a class="about-link" href="join.html">→ Join IEEE CSUN</a>
-      </section>
+    <!-- Optional overlay (keeps your design language) -->
+    <div class="media-fallback">
+      <div class="play-circle">▶</div>
+      <div>
+        <div class="media-fallback-title">IEEE CSUN</div>
+        <div class="media-fallback-sub">Workshops • Projects • Meetings</div>
+      </div>
+    </div>
+  </div>
 
-      <!-- Right column: media -->
-      <aside class="about-media card-light">
-        <!-- Replace poster/src with your own image/video later -->
-        <div class="media-frame">
-          <img
-            src="assets/img/ieee-placeholder.jpg"
-            alt="IEEE CSUN event or workshop photo"
-            onerror="this.style.display='none'; document.getElementById('fallback').style.display='flex';"
-          />
-          <div id="fallback" class="media-fallback" style="display:none;">
-            <div class="play-circle" aria-hidden="true">▶</div>
-            <div class="media-fallback-text">
-              <div class="media-fallback-title">Add a highlight video or photo</div>
-              <div class="media-fallback-sub">Replace with a workshop/project image later</div>
+  <div class="media-caption">
+    <div class="caption-title">What we do</div>
+    <div class="caption-sub">Learning by doing</div>
+  </div>
+</aside>
+
+      </div>
+    </section>
+
+    <!-- Meet the Board -->
+    <section class="team-section">
+      <div class="container">
+        <div class="team-head">
+          <h2>Meet the Board</h2>
+          <p>The student leaders running IEEE CSUN.</p>
+        </div>
+
+        <div class="team-row" id="teamRow">
+          <article class="team-card">
+            <img class="team-photo" src="assets/img/board1.jpg" alt="President" />
+            <div class="team-body">
+              <div class="team-role">Chair / President</div>
+              <div class="team-name">Daniel Jeorge Malana Adrayan </div>
+              <div class="team-bio">Leads the chapter and overall direction.</div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <img class="team-photo" src="assets/img/board2.jpg" alt="Vice Chair" />
+            <div class="team-body">
+              <div class="team-role">Vice Chair</div>
+              <div class="team-name">Kayla Danielle Mendoza</div>
+              <div class="team-bio">Supports operations and events.</div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <img class="team-photo" src="assets/img/board3.jpg" alt="Treasurer" />
+            <div class="team-body">
+              <div class="team-role">Treasurer</div>
+              <div class="team-name">Aolany Acosta</div>
+              <div class="team-bio">Manages finances and fundraising.</div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <img class="team-photo" src="assets/img/board4.jpg" alt="Secretary" />
+            <div class="team-body">
+              <div class="team-role">Secretary</div>
+              <div class="team-name">Juan Carlos Zendejas</div>
+              <div class="team-bio">Handles communication and records.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Dashboard -->
+    <section class="resources-dash">
+      <div class="container">
+        <div class="resources-top">
+          <div>
+            <h2 class="resources-title">IEEE Resources</h2>
+            <p class="resources-sub">
+              National IEEE tools and resources available to students.
+            </p>
+          </div>
+
+          <div class="res-tabs">
+            <button class="res-tab res-tab--active" data-cat="all">All</button>
+            <button class="res-tab" data-cat="membership">Membership</button>
+            <button class="res-tab" data-cat="research">Research</button>
+            <button class="res-tab" data-cat="careers">Careers</button>
+          </div>
+        </div>
+
+        <div class="res-panels">
+          <div class="res-panel" data-panel="all">
+            <div class="res-feature card-light">
+            <div class="res-grid">
+              <article class="res-card">
+                <div class="res-media">🔗</div>
+                <div class="res-body">
+                  <h3 class="res-name">IEEE.org</h3>
+                  <p class="res-desc">Main IEEE website.</p>
+                  <a class="res-link" href="https://www.ieee.org" target="_blank">Open →</a>
+                </div>
+              </article>
+
+              <article class="res-card">
+                <div class="res-media">📚</div>
+                <div class="res-body">
+                  <h3 class="res-name">IEEE Xplore</h3>
+                  <p class="res-desc">Research papers and standards.</p>
+                  <a class="res-link" href="https://ieeexplore.ieee.org" target="_blank">Open →</a>
+                </div>
+              </article>
+
+              <article class="res-card">
+                <div class="res-media">🎓</div>
+                <div class="res-body">
+                  <h3 class="res-name">IEEE Students</h3>
+                  <p class="res-desc">Student programs and benefits.</p>
+                  <a class="res-link" href="https://students.ieee.org" target="_blank">Open →</a>
+                </div>
+              </article>
+
+              <article class="res-card">
+                <div class="res-media">💼</div>
+                <div class="res-body">
+                  <h3 class="res-name">IEEE Careers</h3>
+                  <p class="res-desc">Career tools and job listings.</p>
+                  <a class="res-link" href="https://careers.ieee.org" target="_blank">Open →</a>
+                </div>
+              </article>
             </div>
           </div>
-        </div>
 
-        <div class="media-caption">
-          <div class="caption-title">What we do</div>
-          <div class="caption-sub">Events • Projects • Workshops • Career Growth</div>
-        </div>
-
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-num">3+</div>
-            <div class="stat-label">Event types</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">Hands-on</div>
-            <div class="stat-label">Workshops</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">Team</div>
-            <div class="stat-label">Projects</div>
-          </div>
-        </div>
-      </aside>
-
-    </div>
-
-    <!-- Secondary section -->
-    <section class="about-lower">
-      <div class="container lower-grid">
-        <div class="card-light lower-card">
-          <h3 class="lower-h3">Mission</h3>
-          <p class="lower-p">
-            Create a welcoming community where students build technical confidence,
-            collaborate on projects, and connect to opportunities.
-          </p>
-        </div>
-
-        <div class="card-light lower-card">
-          <h3 class="lower-h3">How to get involved</h3>
-          <p class="lower-p">
-            Join the Discord, attend a meeting, and sign up for a committee (fundraising, events,
-            projects, marketing).
-          </p>
-        </div>
-
-        <div class="card-light lower-card">
-          <h3 class="lower-h3">Want to sponsor or collaborate?</h3>
-          <p class="lower-p">
-            We partner with companies and campus orgs for speakers, workshops, and project support.
-            Reach out through the contact page.
-          </p>
+          <div class="res-panel" data-panel="membership" hidden></div>
+          <div class="res-panel" data-panel="research" hidden></div>
+          <div class="res-panel" data-panel="careers" hidden></div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Go to top button -->
+  <button class="to-top" aria-label="Go to top">↑</button>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
